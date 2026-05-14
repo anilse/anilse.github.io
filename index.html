@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XJCFWYWR6"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8XJCFWYWR6');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anıl Sezgin — Senior AOSP & BSP Developer</title>
+    <meta name="description" content="Anıl Sezgin — Senior software engineer with 13+ years of experience in Embedded Android (AOSP), BSP development, QNX, and automotive infotainment systems.">
+    <meta name="keywords" content="Anıl Sezgin, Anil Sezgin, AOSP, BSP, Android, QNX, embedded systems, software engineer">
+    <meta name="author" content="Anıl Sezgin">
+
+    <!-- Open Graph (LinkedIn, Facebook) -->
+    <meta property="og:title" content="Anıl Sezgin — Senior AOSP & BSP Developer">
+    <meta property="og:description" content="Senior software engineer with 13+ years of experience in Embedded Android, BSP development, QNX, and automotive.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anilse.github.io/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Anıl Sezgin — Senior AOSP & BSP Developer">
+    <meta name="twitter:description" content="Senior software engineer with 13+ years of experience in Embedded Android, BSP development, QNX, and automotive.">
+
+    <link rel="canonical" href="https://anilse.github.io/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e2e8f0; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Tab content transitions */
+        .tab-content { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; }
+        .tab-content.active { display: block; opacity: 1; transform: translateY(0); }
+
+        /* Fade-in animation for cards */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Active tab indicator */
+        .tab-btn { position: relative; transition: color 0.3s ease; }
+        .tab-btn::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #38bdf8; transition: width 0.3s ease; }
+        .tab-btn.active { color: #38bdf8; }
+        .tab-btn.active::after { width: 100%; }
+        .tab-btn:hover { color: #38bdf8; }
+
+        /* Timeline line */
+        .timeline-item { position: relative; padding-left: 2rem; }
+        .timeline-item::before { content: ''; position: absolute; left: 0; top: 0.5rem; width: 10px; height: 10px; border-radius: 50%; background: #38bdf8; }
+        .timeline-item::after { content: ''; position: absolute; left: 4px; top: 1.5rem; width: 2px; height: calc(100% - 0.5rem); background: #1e293b; }
+        .timeline-item:last-child::after { display: none; }
+
+        /* Tag hover */
+        .skill-tag { transition: all 0.2s ease; }
+        .skill-tag:hover { background: #38bdf8; color: #0f172a; transform: translateY(-2px); }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header id="site-header" class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div>
+                <h1 id="header-name" class="text-xl font-bold text-white tracking-tight"></h1>
+                <p id="header-title" class="text-sm text-slate-400 mono"></p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a id="header-linkedin" href="#" target="_blank" rel="noopener noreferrer"
+                   class="text-slate-400 hover:text-sky-400 transition-colors" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin text-xl"></i>
+                </a>
+                <a href="./Anil_Sezgin_CV.pdf" target="_blank" download
+                   class="inline-flex items-center gap-2 px-4 py-2 bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold text-sm rounded-lg transition-colors">
+                    <i class="fa-solid fa-download text-xs"></i>
+                    Download CV
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm sticky top-[73px] z-40">
+        <div class="max-w-6xl mx-auto px-6 flex gap-6 overflow-x-auto">
+            <button class="tab-btn active py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="home">Home</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="experience">Work Experience</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="skills">Skills</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="education">Education</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="projects">Projects</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="contact">Contact</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-10">
+
+        <!-- HOME -->
+        <section id="home" class="tab-content active">
+            <div class="max-w-3xl">
+                <p class="mono text-sky-400 text-sm mb-2">Hello, I'm</p>
+                <h2 id="home-name" class="text-4xl md:text-5xl font-bold text-white mb-4"></h2>
+                <p id="home-summary" class="text-lg text-slate-300 mb-6 leading-relaxed"></p>
+                <p id="home-current" class="text-slate-400 leading-relaxed mb-8"></p>
+                <div id="home-tags" class="flex flex-wrap gap-3"></div>
+            </div>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section id="experience" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Work Experience</h2>
+            <div id="experience-list" class="space-y-8"></div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Skills & Expertise</h2>
+            <div id="skills-grid" class="grid md:grid-cols-2 gap-8"></div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Education</h2>
+            <div id="education-list" class="space-y-6"></div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Projects</h2>
+            <div id="projects-grid" class="grid md:grid-cols-2 gap-6"></div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Get in Touch</h2>
+            <div id="contact-content" class="max-w-lg"></div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 mt-16">
+        <div class="max-w-6xl mx-auto px-6 py-6 text-center">
+            <p id="footer-text" class="text-sm text-slate-500"></p>
+        </div>
+    </footer>
+
+    <script>
+        // ── Single source of truth: data.json ──
+        function boot(data) {
+            renderHeader(data);
+            renderHome(data);
+            renderExperience(data);
+            renderSkills(data);
+            renderEducation(data);
+            renderProjects(data);
+            renderContact(data);
+            renderFooter(data);
+            initTabs();
+            triggerFadeIn(document.getElementById('home'));
+        }
+
+        fetch('data.json').then(r => r.json()).then(boot);
+
+        function renderHeader(d) {
+            document.title = d.pageTitle || `${d.name} — ${d.title}`;
+            document.getElementById('header-name').textContent = d.name;
+            document.getElementById('header-title').textContent = d.title;
+            document.getElementById('header-linkedin').href = d.contact.linkedin;
+        }
+
+        function renderHome(d) {
+            document.getElementById('home-name').textContent = d.name;
+
+            // Split summary into highlight and rest
+            const summary = d.summary;
+            const yearsMatch = summary.match(/(\d+\+?\s*years)/);
+            if (yearsMatch) {
+                const parts = summary.split(yearsMatch[0]);
+                document.getElementById('home-summary').innerHTML =
+                    escapeHtml(parts[0]) +
+                    `<span class="text-sky-400 font-semibold">${escapeHtml(yearsMatch[0])}</span>` +
+                    escapeHtml(parts[1]);
+            } else {
+                document.getElementById('home-summary').textContent = summary;
+            }
+
+            // Current role blurb
+            const current = d.experience[0];
+            document.getElementById('home-current').textContent =
+                `Currently building ${current.department} solutions at ${current.company} in ${current.location.split(',')[0]}.`;
+
+            // Highlight tags from expertise
+            const tags = d.skills.expertise.slice(0, 6);
+            document.getElementById('home-tags').innerHTML = tags.map(t =>
+                `<span class="mono text-xs px-3 py-1.5 bg-slate-800 text-sky-400 rounded-md border border-slate-700">${escapeHtml(t)}</span>`
+            ).join('');
+        }
+
+        function renderExperience(d) {
+            document.getElementById('experience-list').innerHTML = d.experience.map(exp => {
+                const date = exp.start === exp.end ? exp.start : `${exp.start} — ${exp.end}`;
+                return `
+                <div class="timeline-item fade-in">
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">${escapeHtml(exp.role)}</h3>
+                                <p class="text-sky-400 font-medium">${escapeHtml(exp.company)} — ${escapeHtml(exp.department)}</p>
+                            </div>
+                            <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">${escapeHtml(date)}</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3"><i class="fa-solid fa-location-dot mr-1"></i>${escapeHtml(exp.location)}</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            ${exp.items.map(item => `<li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>${escapeHtml(item)}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function renderSkills(d) {
+            const colorMap = { expertise: 'sky', programming: 'emerald', tools: 'amber' };
+            const labelMap = { expertise: 'Areas of Expertise', programming: 'Programming Languages', tools: 'Tools & Platforms' };
+
+            let html = '';
+            for (const [key, label] of Object.entries(labelMap)) {
+                const color = colorMap[key];
+                html += `
+                <div class="fade-in">
+                    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">${label}</h3>
+                    <div class="flex flex-wrap gap-2">
+                        ${d.skills[key].map(s => `<span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-${color}-400 rounded-lg border border-slate-700 cursor-default">${escapeHtml(s)}</span>`).join('')}
+                    </div>
+                </div>`;
+            }
+
+            // Languages with progress bars
+            html += `
+            <div class="fade-in">
+                <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Languages</h3>
+                <div class="space-y-3">
+                    ${d.skills.languages.map(l => `
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-slate-300">${escapeHtml(l.name)}</span>
+                            <span class="text-slate-500">${escapeHtml(l.level)}</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-slate-700 rounded-full">
+                            <div class="h-full bg-sky-400 rounded-full" style="width: ${l.percent}%"></div>
+                        </div>
+                    </div>`).join('')}
+                </div>
+            </div>`;
+
+            document.getElementById('skills-grid').innerHTML = html;
+        }
+
+        function renderEducation(d) {
+            let html = d.education.map(edu => `
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                    <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">${escapeHtml(edu.degree)}</h3>
+                            <p class="text-sky-400 font-medium">${escapeHtml(edu.schoolFull || edu.school)}</p>
+                        </div>
+                        <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">${edu.start} — ${edu.end}</span>
+                    </div>
+                    ${edu.coursework ? `<p class="text-sm text-slate-400 mt-3">Relevant Coursework: ${escapeHtml(edu.coursework)}</p>` : ''}
+                </div>
+            `).join('');
+
+            // Honors
+            html += d.honors.map(h => `
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">${escapeHtml(h.title)}</h3>
+                            <p class="text-sky-400 font-medium">${escapeHtml(h.subtitle)} — ${h.year}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('education-list').innerHTML = html;
+        }
+
+        function renderProjects(d) {
+            document.getElementById('projects-grid').innerHTML = d.projects.map(p => `
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-sky-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
+                            <i class="${p.icon}"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">${escapeHtml(p.name)}</h3>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">${escapeHtml(p.description)}</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${p.tags.map(t => `<span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">${escapeHtml(t)}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderContact(d) {
+            document.getElementById('contact-content').innerHTML = `
+                <p class="text-slate-400 mb-8">Interested in collaborating or have a question? Feel free to reach out through any of the channels below.</p>
+                <div class="space-y-4">
+                    <a href="mailto:${escapeHtml(d.contact.email)}"
+                       class="flex items-center gap-4 p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl hover:border-sky-500/30 transition-colors group">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center group-hover:bg-sky-500/20 transition-colors">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-400">Email</p>
+                            <p class="text-white font-medium">${escapeHtml(d.contact.email)}</p>
+                        </div>
+                    </a>
+                    <a href="${escapeHtml(d.contact.linkedin)}" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-4 p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl hover:border-sky-500/30 transition-colors group">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center group-hover:bg-sky-500/20 transition-colors">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-400">LinkedIn</p>
+                            <p class="text-white font-medium">linkedin.com/in/${escapeHtml(d.contact.linkedinHandle)}</p>
+                        </div>
+                    </a>
+                    ${d.contact.phone ? `<a href="tel:${d.contact.phone.replace(/\s/g, '')}"
+                       class="flex items-center gap-4 p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl hover:border-sky-500/30 transition-colors group">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center group-hover:bg-sky-500/20 transition-colors">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-400">Phone</p>
+                            <p class="text-white font-medium">${escapeHtml(d.contact.phone)}</p>
+                        </div>
+                    </a>` : ''}
+                </div>`;
+        }
+
+        function renderFooter(d) {
+            document.getElementById('footer-text').innerHTML =
+                `&copy; ${new Date().getFullYear()} ${escapeHtml(d.name)}. All rights reserved.`;
+        }
+
+        // ── Utility ──
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // ── Tab switching ──
+        function initTabs() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.dataset.tab;
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    requestAnimationFrame(() => {
+                        document.getElementById(target).classList.add('active');
+                        triggerFadeIn(document.getElementById(target));
+                    });
+                });
+            });
+        }
+
+        // ── Fade-in ──
+        function triggerFadeIn(container) {
+            const items = container.querySelectorAll('.fade-in');
+            items.forEach((item, i) => {
+                item.classList.remove('visible');
+                setTimeout(() => item.classList.add('visible'), i * 80);
+            });
+        }
+
+        // Scroll observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        new MutationObserver(() => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }).observe(document.querySelector('main'), { childList: true, subtree: true });
+    </script>
+</body>
+</html>
