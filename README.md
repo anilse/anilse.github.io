@@ -13,7 +13,15 @@ A minimalist dark-mode portfolio website and Typst CV for Anıl Sezgin, Senior A
 ├── Anil_Sezgin_CV.pdf  # Compiled CV
 ├── serve.cmd           # Local dev server
 ├── validate.sh         # Pre-commit validation
+├── .githooks/          # Shared git hooks
 └── README.md
+```
+
+## Setup
+
+After cloning, enable the shared pre-commit hooks:
+```bash
+git config core.hooksPath .githooks
 ```
 
 ## Local Development
