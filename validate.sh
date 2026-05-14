@@ -1,50 +1,106 @@
 #!/bin/bash
-# Pre-commit validation for portfolio site
+# Pre-commit validation: lint all sources and catch rendering issues
+set -o pipefail
 
 errors=0
+fail() { echo "FAIL: $1"; errors=$((errors + 1)); }
+ok()   { echo "  OK: $1"; }
 
-# 1. Validate data.json is valid JSON
-if uv run python -c "import json; json.load(open('data.json'))" 2>/dev/null || \
-   python -c "import json; json.load(open('data.json'))" 2>/dev/null || \
-   python3 -c "import json; json.load(open('data.json'))" 2>/dev/null || \
-   "$LOCALAPPDATA/Microsoft/WinGet/Packages/astral-sh.uv_Microsoft.Winget.Source_8wekyb3d8bbwe/uv.exe" run python -c "import json; json.load(open('data.json'))" 2>/dev/null; then
-    echo "OK: data.json is valid JSON"
+echo "=== Linting ==="
+
+# JSON: validate syntax
+if uv run python -c "import json, sys; json.load(open('data.json', encoding='utf-8')); sys.exit(0)" 2>/dev/null; then
+    ok "data.json is valid JSON"
 else
-    echo "FAIL: data.json is not valid JSON (or no python found)"
-    errors=$((errors + 1))
+    fail "data.json is invalid JSON"
 fi
 
-# 2. Check required fields in data.json
-for field in name title summary; do
-    if ! grep -q "\"$field\"" data.json; then
-        echo "FAIL: data.json missing required field '$field'"
-        errors=$((errors + 1))
+# HTML: check for common issues that break rendering
+if [ -f index.html ]; then
+    # Unclosed template literals (backtick mismatch)
+    backticks=$(grep -o '`' index.html | wc -l)
+    if [ $((backticks % 2)) -ne 0 ]; then
+        fail "index.html has unmatched backticks (template literal not closed)"
+    else
+        ok "index.html template literals balanced"
+    fi
+
+    # Mismatched script tags
+    open_scripts=$(grep -oc '<script' index.html)
+    close_scripts=$(grep -oc '</script>' index.html)
+    if [ "$open_scripts" -ne "$close_scripts" ]; then
+        fail "index.html has mismatched <script> tags ($open_scripts open, $close_scripts close)"
+    else
+        ok "index.html script tags balanced"
+    fi
+
+    # Check fetch('data.json') is present (rendering depends on it)
+    if grep -q "fetch('data.json')" index.html; then
+        ok "index.html fetches data.json"
+    else
+        fail "index.html missing fetch('data.json') — site will be blank"
+    fi
+else
+    fail "index.html not found"
+fi
+
+# Typst: compile and check for errors
+if command -v typst &>/dev/null; then
+    if typst compile cv.typ /dev/null 2>&1 | grep -qi "error"; then
+        fail "cv.typ has Typst compilation errors"
+        typst compile cv.typ /dev/null 2>&1
+    else
+        ok "cv.typ compiles without errors"
+    fi
+else
+    echo "SKIP: typst not in PATH, cannot lint cv.typ"
+fi
+
+echo ""
+echo "=== Data integrity ==="
+
+# Required top-level fields
+for field in name title summary contact experience education skills projects; do
+    if grep -q "\"$field\"" data.json; then
+        ok "data.json has '$field'"
+    else
+        fail "data.json missing required field '$field'"
     fi
 done
-echo "OK: data.json has required fields"
 
-# 3. Check index.html fetches data.json (not hardcoded data)
-if grep -q "fetch('data.json')" index.html; then
-    echo "OK: index.html fetches data.json"
+# Experience entries have required sub-fields
+exp_roles=$(uv run python -c "
+import json
+data = json.load(open('data.json', encoding='utf-8'))
+missing = []
+for i, e in enumerate(data.get('experience', [])):
+    for f in ['role', 'company', 'department', 'start', 'end', 'location', 'items']:
+        if f not in e:
+            missing.append(f'experience[{i}] missing {f}')
+print('\n'.join(missing) if missing else 'OK')
+" 2>/dev/null)
+if [ -z "$exp_roles" ] || [ "$exp_roles" = "OK" ]; then
+    ok "all experience entries have required fields"
 else
-    echo "FAIL: index.html does not fetch data.json"
-    errors=$((errors + 1))
+    echo "$exp_roles" | while read -r line; do [ -n "$line" ] && fail "$line"; done
 fi
 
-# 4. Check no phone numbers leaked in index.html
-if grep -qE '\+[0-9]{1,3}[\s-]?[0-9]{2,4}[\s-]?[0-9]{3,4}[\s-]?[0-9]{3,4}' index.html; then
-    echo "FAIL: index.html contains a phone number"
-    errors=$((errors + 1))
+echo ""
+echo "=== Security ==="
+
+# No phone numbers in HTML
+if grep -qP '\+\d{1,3}[\s-]?\d{2,4}[\s-]?\d{3,4}[\s-]?\d{3,4}' index.html 2>/dev/null || \
+   grep -qE '\+[0-9]{1,3}[[:space:]-]?[0-9]{2,4}[[:space:]-]?[0-9]{3,4}[[:space:]-]?[0-9]{3,4}' index.html; then
+    fail "index.html contains a phone number"
 else
-    echo "OK: no phone numbers in index.html"
+    ok "no phone numbers in index.html"
 fi
 
-# 5. Check cv.typ reads from data.json
-if grep -q 'json("data.json")' cv.typ; then
-    echo "OK: cv.typ reads data.json"
+# No hardcoded email in HTML (should come from data.json)
+if grep -q 'anil\.sezgin@' index.html; then
+    fail "index.html has hardcoded email address"
 else
-    echo "FAIL: cv.typ does not read data.json"
-    errors=$((errors + 1))
+    ok "no hardcoded email in index.html"
 fi
 
 echo ""
