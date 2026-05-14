@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anıl Sezgin — Senior AOSP & BSP Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0f172a; color: #e2e8f0; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Tab content transitions */
+        .tab-content { display: none; opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; }
+        .tab-content.active { display: block; opacity: 1; transform: translateY(0); }
+
+        /* Fade-in animation for cards */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Active tab indicator */
+        .tab-btn { position: relative; transition: color 0.3s ease; }
+        .tab-btn::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #38bdf8; transition: width 0.3s ease; }
+        .tab-btn.active { color: #38bdf8; }
+        .tab-btn.active::after { width: 100%; }
+        .tab-btn:hover { color: #38bdf8; }
+
+        /* Timeline line */
+        .timeline-item { position: relative; padding-left: 2rem; }
+        .timeline-item::before { content: ''; position: absolute; left: 0; top: 0.5rem; width: 10px; height: 10px; border-radius: 50%; background: #38bdf8; }
+        .timeline-item::after { content: ''; position: absolute; left: 4px; top: 1.5rem; width: 2px; height: calc(100% - 0.5rem); background: #1e293b; }
+        .timeline-item:last-child::after { display: none; }
+
+        /* Tag hover */
+        .skill-tag { transition: all 0.2s ease; }
+        .skill-tag:hover { background: #38bdf8; color: #0f172a; transform: translateY(-2px); }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div>
+                <h1 class="text-xl font-bold text-white tracking-tight">Anıl Sezgin</h1>
+                <p class="text-sm text-slate-400 mono">Senior AOSP & BSP Developer</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://www.linkedin.com/in/anilsezgin/" target="_blank" rel="noopener noreferrer"
+                   class="text-slate-400 hover:text-sky-400 transition-colors" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin text-xl"></i>
+                </a>
+                <a href="./Anil_Sezgin_CV.pdf" target="_blank" download
+                   class="inline-flex items-center gap-2 px-4 py-2 bg-sky-500 hover:bg-sky-400 text-slate-900 font-semibold text-sm rounded-lg transition-colors">
+                    <i class="fa-solid fa-download text-xs"></i>
+                    Download CV
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm sticky top-[73px] z-40">
+        <div class="max-w-6xl mx-auto px-6 flex gap-6 overflow-x-auto">
+            <button class="tab-btn active py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="home">Home</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="experience">Work Experience</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="skills">Skills</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="education">Education</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="projects">Projects</button>
+            <button class="tab-btn py-3 text-sm font-medium text-slate-400 whitespace-nowrap" data-tab="contact">Contact</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-10">
+
+        <!-- HOME -->
+        <section id="home" class="tab-content active">
+            <div class="max-w-3xl">
+                <p class="mono text-sky-400 text-sm mb-2">Hello, I'm</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Anıl Sezgin</h2>
+                <p class="text-lg text-slate-300 mb-6 leading-relaxed">
+                    Senior software engineer with <span class="text-sky-400 font-semibold">13+ years</span> of experience
+                    in consumer electronics, defense industry, and automotive. Expert in Embedded Android (AOSP),
+                    Board Support Package (BSP) development, and QNX.
+                </p>
+                <p class="text-slate-400 leading-relaxed mb-8">
+                    Proven track record in leading platform-level software development across smartphones, tablets,
+                    defense systems, and next-generation automotive infotainment platforms.
+                    Currently building Android Automotive and QNX solutions at HaleyTek AB in Sweden.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <span class="mono text-xs px-3 py-1.5 bg-slate-800 text-sky-400 rounded-md border border-slate-700">Embedded Android</span>
+                    <span class="mono text-xs px-3 py-1.5 bg-slate-800 text-sky-400 rounded-md border border-slate-700">AOSP</span>
+                    <span class="mono text-xs px-3 py-1.5 bg-slate-800 text-sky-400 rounded-md border border-slate-700">BSP Development</span>
+                    <span class="mono text-xs px-3 py-1.5 bg-slate-800 text-sky-400 rounded-md border border-slate-700">QNX</span>
+                    <span class="mono text-xs px-3 py-1.5 bg-slate-800 text-sky-400 rounded-md border border-slate-700">Linux Kernel</span>
+                    <span class="mono text-xs px-3 py-1.5 bg-slate-800 text-sky-400 rounded-md border border-slate-700">Android Automotive</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section id="experience" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Work Experience</h2>
+            <div class="space-y-8">
+
+                <div class="timeline-item fade-in">
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Lead Software Developer</h3>
+                                <p class="text-sky-400 font-medium">HaleyTek AB — BSP</p>
+                            </div>
+                            <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">May 2023 — Present</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3"><i class="fa-solid fa-location-dot mr-1"></i>Göteborg, Sverige</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Integration of baselines of various automotive Android and QNX projects.</li>
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Customization of Android Automotive OS and QNX for OEM customer needs.</li>
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Debugging platform-level issues on both QNX Hypervisor and Android Virtual Machine.</li>
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Writing automated tests using Behave and Pytest frameworks.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Senior Software Engineer</h3>
+                                <p class="text-sky-400 font-medium">Aptiv — Advanced Safety / UX</p>
+                            </div>
+                            <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">Nov 2021 — Apr 2023</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3"><i class="fa-solid fa-location-dot mr-1"></i>Kraków, Polska</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Development and maintenance of software download applications using Android's Update Engine.</li>
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Adaptation of Android OTA package creation to customer-specific software download format.</li>
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Debugging platform-level issues on both QNX and Android Virtual Machine.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Senior Researcher</h3>
+                                <p class="text-sky-400 font-medium">TÜBİTAK SAGE — Embedded Systems Software Unit</p>
+                            </div>
+                            <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">Oct 2019 — Sep 2021</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3"><i class="fa-solid fa-location-dot mr-1"></i>Ankara, Turkey</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Extension and development of ExoPlayer library integrated into Android app for real-time video streaming.</li>
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Development of video player applications using GStreamer SDK, H.264 over RTP/RTSP.</li>
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Embedded Linux development using Yocto for i.MX 8 based custom HMI boards.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Software Architect</h3>
+                                <p class="text-sky-400 font-medium">Vestel Electronics — Mobile Devices</p>
+                            </div>
+                            <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">Dec 2017 — Sep 2019</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3"><i class="fa-solid fa-location-dot mr-1"></i>Manisa, Turkey</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Led architectural decisions for Android OS customization on Qualcomm-based smartphones and tablets.</li>
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Design, development and integration of system services for manufacturing and OTA updates.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Senior Software Design Specialist</h3>
+                                <p class="text-sky-400 font-medium">Vestel Electronics — Mobile Devices</p>
+                            </div>
+                            <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">Jan 2015 — Dec 2017</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3"><i class="fa-solid fa-location-dot mr-1"></i>Manisa, Turkey</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Android OS bring-up on custom boards of smartphones and tablets based on Qualcomm chipsets.</li>
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Peripheral bring-ups of display (MIPI-DSI), audio, sensors (I2C, SPI) on Linux Kernel.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Software Design Specialist</h3>
+                                <p class="text-sky-400 font-medium">Vestel Electronics — Mobile Devices</p>
+                            </div>
+                            <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">Jan 2014 — Dec 2014</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3"><i class="fa-solid fa-location-dot mr-1"></i>Manisa, Turkey</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>BSP-level development and integration for tablet and smartphone product lines.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold text-white">Software Design Engineer</h3>
+                                <p class="text-sky-400 font-medium">Vestel Electronics — Mobile Devices</p>
+                            </div>
+                            <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">Dec 2013</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3"><i class="fa-solid fa-location-dot mr-1"></i>Manisa, Turkey</p>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            <li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>Android platform development and board bring-up for mobile devices.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Skills & Expertise</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="fade-in">
+                    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Areas of Expertise</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-sky-400 rounded-lg border border-slate-700 cursor-default">Embedded Android (AOSP)</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-sky-400 rounded-lg border border-slate-700 cursor-default">Board Support Package (BSP)</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-sky-400 rounded-lg border border-slate-700 cursor-default">Android Automotive OS</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-sky-400 rounded-lg border border-slate-700 cursor-default">Linux Device Drivers</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-sky-400 rounded-lg border border-slate-700 cursor-default">QNX Hypervisor</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-sky-400 rounded-lg border border-slate-700 cursor-default">Android App Development</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-sky-400 rounded-lg border border-slate-700 cursor-default">Embedded Linux / Yocto</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-sky-400 rounded-lg border border-slate-700 cursor-default">OTA Update Systems</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-sky-400 rounded-lg border border-slate-700 cursor-default">GStreamer / Multimedia</span>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Programming Languages</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-emerald-400 rounded-lg border border-slate-700 cursor-default">C</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-emerald-400 rounded-lg border border-slate-700 cursor-default">C++</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-emerald-400 rounded-lg border border-slate-700 cursor-default">Java</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-emerald-400 rounded-lg border border-slate-700 cursor-default">Python</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-emerald-400 rounded-lg border border-slate-700 cursor-default">Kotlin</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-emerald-400 rounded-lg border border-slate-700 cursor-default">Shell Scripting</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-emerald-400 rounded-lg border border-slate-700 cursor-default">MATLAB</span>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Tools & Platforms</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">Android Studio</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">Git</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">Gerrit</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">JIRA</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">GDB</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">ADB</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">Yocto</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">Repo Tool</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">VS Code</span>
+                        <span class="skill-tag mono text-xs px-3 py-2 bg-slate-800 text-amber-400 rounded-lg border border-slate-700 cursor-default">Behave / Pytest</span>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Languages</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-slate-300">Turkish</span>
+                                <span class="text-slate-500">Native</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-700 rounded-full">
+                                <div class="h-full bg-sky-400 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-slate-300">English</span>
+                                <span class="text-slate-500">Fluent</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-700 rounded-full">
+                                <div class="h-full bg-sky-400 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Education</h2>
+            <div class="space-y-6">
+
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                    <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">M.S. in Computer Engineering</h3>
+                            <p class="text-sky-400 font-medium">Özyeğin University</p>
+                        </div>
+                        <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">2017 — 2019</span>
+                    </div>
+                    <p class="text-sm text-slate-400 mt-3">Relevant Coursework: Advanced OOP, Advanced Software Engineering, Agile Development, Android App Development, Multicore Programming, Software Testing & Analysis</p>
+                </div>
+
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                    <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">B.S. in Electrical and Electronics Engineering</h3>
+                            <p class="text-sky-400 font-medium">Middle East Technical University (METU/ODTÜ)</p>
+                        </div>
+                        <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">2008 — 2013</span>
+                    </div>
+                    <p class="text-sm text-slate-400 mt-3">Relevant Coursework: Computer Architecture, Digital Electronics, Microprocessors, VLSI Design, System on Chip Design, Logic Design, C Programming</p>
+                </div>
+
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">65th Rank among 1,600,000</h3>
+                            <p class="text-sky-400 font-medium">University Entrance Exam (ÖSS) — 2008</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-sky-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-car"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">Android Automotive Platform</h3>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">Integration and customization of Android Automotive OS and QNX Hypervisor for next-generation in-vehicle infotainment systems at HaleyTek AB.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">AAOS</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">QNX</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">Hypervisor</span>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-sky-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-download"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">OTA Update System</h3>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">End-to-end software download solution using Android's Update Engine with customer-specific OTA package adaptation at Aptiv.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">Android</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">OTA</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">Update Engine</span>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-sky-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">Real-Time Video Streaming</h3>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">Extended ExoPlayer library for real-time video streaming. Built GStreamer-based video player with H.264 over RTP/RTSP at TÜBİTAK SAGE.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">ExoPlayer</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">GStreamer</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">RTP/RTSP</span>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-sky-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">HMI Embedded Linux Platform</h3>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">Built Embedded Linux using Yocto for i.MX 8 based custom boards powering Human-Machine Interaction Units in defense systems.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">Yocto</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">i.MX 8</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">Linux</span>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-sky-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">Vestel Venus V3 5570</h3>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">Full BSP and AOSP development for Vestel's Venus smartphone line, including Qualcomm chipset bring-up and peripheral integration.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">AOSP</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">Qualcomm</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">BSP</span>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-sky-500/30 transition-colors">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-tablet-screen-button"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">THOR Tablet Series</h3>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">BSP and Android platform development for multiple THOR tablet variants and the 7.85" Tablet PC product line at Vestel Electronics.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">Android</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">Tablet</span>
+                        <span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">BSP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="tab-content">
+            <h2 class="text-2xl font-bold text-white mb-8">Get in Touch</h2>
+            <div class="max-w-lg">
+                <p class="text-slate-400 mb-8">
+                    Interested in collaborating or have a question? Feel free to reach out through any of the channels below.
+                </p>
+                <div class="space-y-4">
+                    <a href="mailto:anil.sezgin@outlook.com"
+                       class="flex items-center gap-4 p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl hover:border-sky-500/30 transition-colors group">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center group-hover:bg-sky-500/20 transition-colors">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-400">Email</p>
+                            <p class="text-white font-medium">anil.sezgin@outlook.com</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/anilsezgin/" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-4 p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl hover:border-sky-500/30 transition-colors group">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center group-hover:bg-sky-500/20 transition-colors">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-400">LinkedIn</p>
+                            <p class="text-white font-medium">linkedin.com/in/anilsezgin</p>
+                        </div>
+                    </a>
+
+                    <a href="tel:+46705493309"
+                       class="flex items-center gap-4 p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl hover:border-sky-500/30 transition-colors group">
+                        <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center group-hover:bg-sky-500/20 transition-colors">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-400">Phone</p>
+                            <p class="text-white font-medium">+46 70 549 3309</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 mt-16">
+        <div class="max-w-6xl mx-auto px-6 py-6 text-center">
+            <p class="text-sm text-slate-500">&copy; 2026 Anıl Sezgin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.tab;
+
+                // Update active tab button
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Switch content with fade
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                const targetEl = document.getElementById(target);
+                // Small delay so the display:none → block transition triggers the CSS animation
+                requestAnimationFrame(() => {
+                    targetEl.classList.add('active');
+                    // Trigger fade-in for cards
+                    triggerFadeIn(targetEl);
+                });
+            });
+        });
+
+        // Fade-in observer
+        function triggerFadeIn(container) {
+            const items = container.querySelectorAll('.fade-in');
+            items.forEach((item, i) => {
+                item.classList.remove('visible');
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, i * 80);
+            });
+        }
+
+        // Initial fade-in for home tab
+        triggerFadeIn(document.getElementById('home'));
+
+        // Also trigger on scroll for any visible tab
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
