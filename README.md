@@ -2,82 +2,46 @@
 
 A minimalist dark-mode portfolio website and Typst CV for Anıl Sezgin, Senior AOSP & BSP Developer.
 
-## Project Structure
+## Architecture
+
+`data.json` is the single source of truth — both the website and CV read from it.
 
 ```
-my_website/
-├── index.html                  # Portfolio website (SPA)
-├── cv.typ                      # Typst CV source
-├── Anil_Sezgin_CV.pdf          # Compiled CV (linked from download button)
+├── data.json           # All CV data (single source of truth)
+├── index.html          # Portfolio website (reads data.json)
+├── cv.typ              # Typst CV source (reads data.json)
+├── Anil_Sezgin_CV.pdf  # Compiled CV
+├── serve.cmd           # Local dev server
+├── validate.sh         # Pre-commit validation
 └── README.md
 ```
 
+## Local Development
+
+```bash
+serve.cmd
+```
+Then open [http://localhost:8000](http://localhost:8000).
+
 ## Compiling the CV
 
-### Prerequisites
-
-Install Typst:
-
-**Windows:**
+Install [Typst](https://typst.app):
 ```bash
-winget install --id Typst.Typst
+winget install --id Typst.Typst   # Windows
+brew install typst                 # macOS
 ```
 
-**macOS:**
-```bash
-brew install typst
-```
-
-**Ubuntu/Debian:**
-```bash
-curl -fsSL https://typst.community/typst-install/install.sh | bash
-```
-
-### Compile
-
+Compile:
 ```bash
 typst compile cv.typ Anil_Sezgin_CV.pdf
 ```
 
-## Running the Website Locally
-
-The website is a single static HTML file with no build step.
-
-**Using Python:**
-```bash
-python3 -m http.server 8000
-```
-Then open [http://localhost:8000](http://localhost:8000) in your browser.
-
-**Using Node.js (npx):**
-```bash
-npx serve .
-```
-
 ## Deployment
 
-### GitHub Pages
-
-1. Push this repository to GitHub.
-2. Go to **Settings → Pages**.
-3. Under **Source**, select the `main` branch and `/` (root) folder.
-4. Click **Save**. Your site will be live at `https://<username>.github.io/my_website/`.
-
-### Vercel
-
-1. Install the Vercel CLI:
-   ```bash
-   npm i -g vercel
-   ```
-2. Deploy:
-   ```bash
-   vercel --prod
-   ```
+Hosted on **Cloudflare Pages** at [anilsezgin.dev](https://anilsezgin.dev). Auto-deploys on push to `main`.
 
 ## Tech Stack
 
-- **HTML5** — Semantic markup
-- **Tailwind CSS** — Utility-first styling via CDN
-- **Font Awesome** — Icons via CDN
-- **Vanilla JavaScript** — Tab switching & fade-in animations
-- **Typst** — Modern CV typesetting
+- **HTML5 + Tailwind CSS + Vanilla JS** — Portfolio website
+- **Typst** — CV typesetting
+- **data.json** — Shared data between website and CV

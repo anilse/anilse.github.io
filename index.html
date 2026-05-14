@@ -11,23 +11,23 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anıl Sezgin — Senior AOSP & BSP Developer</title>
-    <meta name="description" content="Anıl Sezgin — Senior software engineer with 13+ years of experience in Embedded Android (AOSP), BSP development, QNX, and automotive infotainment systems.">
-    <meta name="keywords" content="Anıl Sezgin, Anil Sezgin, AOSP, BSP, Android, QNX, embedded systems, software engineer">
-    <meta name="author" content="Anıl Sezgin">
+    <title>Portfolio</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
 
     <!-- Open Graph (LinkedIn, Facebook) -->
-    <meta property="og:title" content="Anıl Sezgin — Senior AOSP & BSP Developer">
-    <meta property="og:description" content="Senior software engineer with 13+ years of experience in Embedded Android, BSP development, QNX, and automotive.">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://anilse.github.io/">
+    <meta property="og:url" content="">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Anıl Sezgin — Senior AOSP & BSP Developer">
-    <meta name="twitter:description" content="Senior software engineer with 13+ years of experience in Embedded Android, BSP development, QNX, and automotive.">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
 
-    <link rel="canonical" href="https://anilse.github.io/">
+    <link rel="canonical" href="">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -174,10 +174,26 @@
         fetch('data.json').then(r => r.json()).then(boot);
 
         function renderHeader(d) {
-            document.title = d.pageTitle || `${d.name} — ${d.title}`;
+            const title = d.pageTitle || `${d.name} — ${d.title}`;
+            const desc = d.summary;
+            const url = d.siteUrl || '';
+
+            document.title = title;
             document.getElementById('header-name').textContent = d.name;
             document.getElementById('header-title').textContent = d.title;
             document.getElementById('header-linkedin').href = d.contact.linkedin;
+
+            // SEO meta tags
+            const set = (sel, attr, val) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+            set('meta[name="description"]', 'content', desc);
+            set('meta[name="keywords"]', 'content', `${d.name}, ${d.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'')}, ${d.skills.expertise.join(', ')}`);
+            set('meta[name="author"]', 'content', d.name);
+            set('meta[property="og:title"]', 'content', title);
+            set('meta[property="og:description"]', 'content', desc);
+            set('meta[property="og:url"]', 'content', url);
+            set('meta[name="twitter:title"]', 'content', title);
+            set('meta[name="twitter:description"]', 'content', desc);
+            set('link[rel="canonical"]', 'href', url);
         }
 
         function renderHome(d) {
