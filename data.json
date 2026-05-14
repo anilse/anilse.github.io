@@ -1,0 +1,192 @@
+{
+  "pageTitle": "Anıl Sezgin — Senior AOSP & BSP Developer",
+  "name": "Anıl Sezgin",
+  "nameUpper": "ANIL SEZGİN",
+  "title": "Senior AOSP & BSP Developer",
+  "contact": {
+    "email": "anil.sezgin@outlook.com",
+    "phone": "+46 70 549 3309",
+    "linkedin": "https://www.linkedin.com/in/anilsezgin/",
+    "linkedinHandle": "anilsezgin",
+    "location": "Ankara, Turkey"
+  },
+  "summary": "Senior software engineer with 13+ years of experience in consumer electronics, defense industry, and automotive. Expert in Embedded Android (AOSP), Board Support Package (BSP) development, and QNX. Proven track record in leading platform-level software development across smartphones, tablets, defense systems, and next-generation automotive infotainment platforms.",
+  "experience": [
+    {
+      "role": "Lead Software Developer",
+      "company": "HaleyTek AB",
+      "department": "BSP",
+      "start": "May 2023",
+      "end": "Present",
+      "location": "Göteborg, Sverige",
+      "items": [
+        "Integration of baselines of various automotive Android and QNX projects.",
+        "Customization of Android Automotive OS and QNX for OEM customer needs.",
+        "Debugging platform-level issues on both QNX Hypervisor and Android VM.",
+        "Writing automated tests using Behave and Pytest frameworks."
+      ]
+    },
+    {
+      "role": "Senior Software Engineer",
+      "company": "Aptiv",
+      "department": "Advanced Safety / UX",
+      "start": "Nov 2021",
+      "end": "Apr 2023",
+      "location": "Kraków, Polska",
+      "items": [
+        "Development and maintenance of software download applications using Android's Update Engine.",
+        "Adaptation of Android OTA package creation to customer-specific software download format.",
+        "Debugging platform-level issues on both QNX and Android Virtual Machine."
+      ]
+    },
+    {
+      "role": "Senior Researcher",
+      "company": "TÜBİTAK SAGE",
+      "department": "Embedded Systems",
+      "start": "Oct 2019",
+      "end": "Sep 2021",
+      "location": "Ankara, Turkey",
+      "items": [
+        "Extension and development of ExoPlayer library for real-time video streaming.",
+        "Development of video player applications using GStreamer SDK, H.264 over RTP/RTSP.",
+        "Embedded Linux development using Yocto for i.MX 8 based custom HMI boards."
+      ]
+    },
+    {
+      "role": "Software Architect",
+      "company": "Vestel Electronics",
+      "department": "Mobile Devices",
+      "start": "Dec 2017",
+      "end": "Sep 2019",
+      "location": "Manisa, Turkey",
+      "items": [
+        "Led architectural decisions for Android OS customization on Qualcomm-based smartphones and tablets.",
+        "Design, development and integration of system services for manufacturing and OTA updates."
+      ]
+    },
+    {
+      "role": "Sr. Software Design Specialist",
+      "company": "Vestel Electronics",
+      "department": "Mobile Devices",
+      "start": "Jan 2015",
+      "end": "Dec 2017",
+      "location": "Manisa, Turkey",
+      "items": [
+        "Android OS bring-up on custom boards based on Qualcomm chipsets.",
+        "Peripheral bring-ups of display (MIPI-DSI), audio, sensors (I2C, SPI) on Linux Kernel."
+      ]
+    },
+    {
+      "role": "Software Design Specialist",
+      "company": "Vestel Electronics",
+      "department": "Mobile Devices",
+      "start": "Jan 2014",
+      "end": "Dec 2014",
+      "location": "Manisa, Turkey",
+      "items": [
+        "BSP-level development and integration for tablet and smartphone product lines."
+      ]
+    },
+    {
+      "role": "Software Design Engineer",
+      "company": "Vestel Electronics",
+      "department": "Mobile Devices",
+      "start": "Dec 2013",
+      "end": "Dec 2013",
+      "location": "Manisa, Turkey",
+      "items": [
+        "Android platform development and board bring-up for mobile devices."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "M.S. in Computer Engineering",
+      "school": "Özyeğin University",
+      "start": "2017",
+      "end": "2019",
+      "coursework": "Advanced OOP, Advanced Software Engineering, Agile Development, Android App Development, Multicore Programming, Software Testing & Analysis"
+    },
+    {
+      "degree": "B.S. in EE Engineering",
+      "school": "Middle East Technical University",
+      "schoolFull": "Middle East Technical University (METU/ODTÜ)",
+      "start": "2008",
+      "end": "2013",
+      "coursework": "Computer Architecture, Digital Electronics, Microprocessors, VLSI Design, System on Chip Design, Logic Design, C Programming"
+    }
+  ],
+  "skills": {
+    "expertise": [
+      "Embedded Android (AOSP)",
+      "BSP Development",
+      "Android Automotive OS",
+      "Linux Device Drivers",
+      "QNX Hypervisor",
+      "Android App Dev",
+      "Embedded Linux / Yocto",
+      "OTA Update Systems"
+    ],
+    "programming": [
+      "C", "C++", "Java", "Python", "Kotlin", "Shell Scripting", "OOP", "MATLAB"
+    ],
+    "tools": [
+      "Android Studio", "Git", "Gerrit", "JIRA", "GDB", "ADB", "Yocto", "Repo Tool", "VS Code", "Behave / Pytest"
+    ],
+    "languages": [
+      { "name": "Turkish", "level": "Native", "percent": 100 },
+      { "name": "English", "level": "Fluent", "percent": 90 }
+    ]
+  },
+  "honors": [
+    {
+      "title": "65th among 1,600,000",
+      "subtitle": "Univ. Entrance Exam (ÖSS)",
+      "year": "2008"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Android Automotive Platform",
+      "icon": "fa-solid fa-car",
+      "description": "Integration and customization of Android Automotive OS and QNX Hypervisor for next-generation in-vehicle infotainment systems at HaleyTek AB.",
+      "tags": ["AAOS", "QNX", "Hypervisor"],
+      "cvLabel": "Android Automotive Platform — IVI (BSP & AAOS)"
+    },
+    {
+      "name": "OTA Update System",
+      "icon": "fa-solid fa-download",
+      "description": "End-to-end software download solution using Android's Update Engine with customer-specific OTA package adaptation at Aptiv.",
+      "tags": ["Android", "OTA", "Update Engine"],
+      "cvLabel": "OTA Update System — Aptiv"
+    },
+    {
+      "name": "Real-Time Video Streaming",
+      "icon": "fa-solid fa-video",
+      "description": "Extended ExoPlayer library for real-time video streaming. Built GStreamer-based video player with H.264 over RTP/RTSP at TÜBİTAK SAGE.",
+      "tags": ["ExoPlayer", "GStreamer", "RTP/RTSP"],
+      "cvLabel": "Real-Time Video Streaming — TÜBİTAK"
+    },
+    {
+      "name": "HMI Embedded Linux Platform",
+      "icon": "fa-solid fa-microchip",
+      "description": "Built Embedded Linux using Yocto for i.MX 8 based custom boards powering Human-Machine Interaction Units in defense systems.",
+      "tags": ["Yocto", "i.MX 8", "Linux"],
+      "cvLabel": "HMI Embedded Linux — i.MX 8 / Yocto"
+    },
+    {
+      "name": "Vestel Venus V3 5570",
+      "icon": "fa-solid fa-mobile-screen",
+      "description": "Full BSP and AOSP development for Vestel's Venus smartphone line, including Qualcomm chipset bring-up and peripheral integration.",
+      "tags": ["AOSP", "Qualcomm", "BSP"],
+      "cvLabel": "Vestel Venus V3 5570 — Smartphone (BSP & AOSP)"
+    },
+    {
+      "name": "THOR Tablet Series",
+      "icon": "fa-solid fa-tablet-screen-button",
+      "description": "BSP and Android platform development for multiple THOR tablet variants and the 7.85\" Tablet PC product line at Vestel Electronics.",
+      "tags": ["Android", "Tablet", "BSP"],
+      "cvLabel": "THOR Tablet Series — Multiple variants"
+    }
+  ]
+}
