@@ -20,6 +20,10 @@
       "start": "May 2023",
       "end": "Present",
       "location": "Göteborg, Sverige",
+      "roles": [
+        { "title": "Lead Software Developer", "period": "Nov 2024 — Present" },
+        { "title": "Senior Software Developer", "period": "May 2023 — Oct 2024" }
+      ],
       "items": [
         "Integration of baselines of various automotive Android and QNX projects.",
         "Customization of Android Automotive OS and QNX for OEM customer needs.",
@@ -57,46 +61,21 @@
       "role": "Software Architect",
       "company": "Vestel Electronics",
       "department": "Mobile Devices",
-      "start": "Dec 2017",
+      "start": "Dec 2013",
       "end": "Sep 2019",
       "location": "Manisa, Turkey",
+      "roles": [
+        { "title": "Software Architect", "period": "Dec 2017 — Sep 2019" },
+        { "title": "Sr. Software Design Specialist", "period": "Jan 2015 — Dec 2017" },
+        { "title": "Software Design Specialist", "period": "Jan 2014 — Dec 2014" },
+        { "title": "Software Design Engineer", "period": "Dec 2013" }
+      ],
       "items": [
         "Led architectural decisions for Android OS customization on Qualcomm-based smartphones and tablets.",
-        "Design, development and integration of system services for manufacturing and OTA updates."
-      ]
-    },
-    {
-      "role": "Sr. Software Design Specialist",
-      "company": "Vestel Electronics",
-      "department": "Mobile Devices",
-      "start": "Jan 2015",
-      "end": "Dec 2017",
-      "location": "Manisa, Turkey",
-      "items": [
+        "Design, development and integration of system services for manufacturing and OTA updates.",
         "Android OS bring-up on custom boards based on Qualcomm chipsets.",
-        "Peripheral bring-ups of display (MIPI-DSI), audio, sensors (I2C, SPI) on Linux Kernel."
-      ]
-    },
-    {
-      "role": "Software Design Specialist",
-      "company": "Vestel Electronics",
-      "department": "Mobile Devices",
-      "start": "Jan 2014",
-      "end": "Dec 2014",
-      "location": "Manisa, Turkey",
-      "items": [
+        "Peripheral bring-ups of display (MIPI-DSI), audio, sensors (I2C, SPI) on Linux Kernel.",
         "BSP-level development and integration for tablet and smartphone product lines."
-      ]
-    },
-    {
-      "role": "Software Design Engineer",
-      "company": "Vestel Electronics",
-      "department": "Mobile Devices",
-      "start": "Dec 2013",
-      "end": "Dec 2013",
-      "location": "Manisa, Turkey",
-      "items": [
-        "Android platform development and board bring-up for mobile devices."
       ]
     }
   ],
@@ -109,7 +88,7 @@
       "coursework": "Advanced OOP, Advanced Software Engineering, Agile Development, Android App Development, Multicore Programming, Software Testing & Analysis"
     },
     {
-      "degree": "B.S. in EE Engineering",
+      "degree": "B.S. in Electrical & Electronics Eng.",
       "school": "Middle East Technical University",
       "schoolFull": "Middle East Technical University (METU/ODTÜ)",
       "start": "2008",
@@ -121,22 +100,21 @@
     "expertise": [
       "Embedded Android (AOSP)",
       "BSP Development",
-      "Android Automotive OS",
       "Linux Device Drivers",
       "QNX Hypervisor",
       "Android App Dev",
-      "Embedded Linux / Yocto",
       "OTA Update Systems"
     ],
     "programming": [
-      "C", "C++", "Java", "Python", "Kotlin", "Shell Scripting", "OOP", "MATLAB"
+      "C++ 98/11/14/17", "C", "Python 3.x", "Java", "Shell", "Makefile", "CMake"
     ],
     "tools": [
-      "Android Studio", "Git", "Gerrit", "JIRA", "GDB", "ADB", "Yocto", "Repo Tool", "VS Code", "Behave / Pytest"
+      "Android Studio", "Git", "Gerrit", "Claude", "GDB", "ADB", "Repo Tool", "VS Code"
     ],
     "languages": [
       { "name": "Turkish", "level": "Native", "percent": 100 },
-      { "name": "English", "level": "Fluent", "percent": 90 }
+      { "name": "English", "level": "Fluent", "percent": 90 },
+      { "name": "Swedish", "level": "Beginner", "percent": 20 }
     ]
   },
   "honors": [
@@ -167,13 +145,6 @@
       "description": "Extended ExoPlayer library for real-time video streaming. Built GStreamer-based video player with H.264 over RTP/RTSP at TÜBİTAK SAGE.",
       "tags": ["ExoPlayer", "GStreamer", "RTP/RTSP"],
       "cvLabel": "Real-Time Video Streaming — TÜBİTAK"
-    },
-    {
-      "name": "HMI Embedded Linux Platform",
-      "icon": "fa-solid fa-microchip",
-      "description": "Built Embedded Linux using Yocto for i.MX 8 based custom boards powering Human-Machine Interaction Units in defense systems.",
-      "tags": ["Yocto", "i.MX 8", "Linux"],
-      "cvLabel": "HMI Embedded Linux — i.MX 8 / Yocto"
     },
     {
       "name": "Vestel Venus V3 5570",

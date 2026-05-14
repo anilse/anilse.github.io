@@ -24,7 +24,8 @@
 #let entry(title, subtitle, date, location) = {
   grid(
     columns: (1fr, auto),
-    row-gutter: 1pt,
+    column-gutter: 8pt,
+    row-gutter: 4pt,
     text(weight: "bold", size: 9pt, title),
     align(right, text(size: 8pt, fill: light-gray, date)),
     text(fill: accent, size: 8.5pt, weight: "medium", subtitle),
@@ -62,7 +63,7 @@
   #text(10pt, fill: accent, weight: "medium")[#data.title]
   #v(1pt)
   #text(8pt, fill: light-gray)[
-    #link("mailto:" + data.contact.email)[#data.contact.email.replace("@", "\@")] #if data.contact.phone != "" { [#h(4pt)·#h(4pt) #data.contact.phone] } #h(4pt)·#h(4pt) #link(data.contact.linkedin)[linkedin.com/in/#data.contact.linkedinHandle] #h(4pt)·#h(4pt) #data.contact.location
+    #link("mailto:" + data.contact.email)[#data.contact.email] #if data.contact.phone != "" { [#h(4pt)·#h(4pt) #data.contact.phone] } #h(4pt)·#h(4pt) #link(data.siteUrl)[anilsezgin.dev] #h(4pt)·#h(4pt) #link(data.contact.linkedin)[linkedin.com/in/#data.contact.linkedinHandle] #h(4pt)·#h(4pt) #data.contact.location
   ]
 ]
 #v(4pt)
@@ -77,7 +78,8 @@
 #place(right, dx: 0pt, dy: 0pt,
   block(width: right-col-width)[
     #section("Education")
-    #for edu in data.education {
+    #for (i, edu) in data.education.enumerate() {
+      if i > 0 { divider() }
       entry(edu.degree, edu.school, edu.start + " — " + edu.end, "")
       v(4pt)
     }
@@ -108,7 +110,15 @@
 
     #section("Honors")
     #for honor in data.honors {
-      entry(honor.title, honor.subtitle, honor.year, "")
+      grid(
+        columns: (1fr, auto),
+        column-gutter: 8pt,
+        row-gutter: 4pt,
+        text(weight: "bold", size: 9pt, honor.title),
+        align(right, text(size: 8pt, fill: light-gray, honor.year)),
+        text(fill: accent, size: 8.5pt, weight: "medium", honor.subtitle),
+      )
+      v(4pt)
     }
 
     #section("Projects")
@@ -132,6 +142,14 @@
     if i > 0 { divider() }
     let date = if exp.end == exp.start { exp.start } else { exp.start + " — " + exp.end }
     entry(exp.role, exp.company + " — " + exp.department, date, exp.location)
+    if "roles" in exp {
+      v(6pt)
+      for r in exp.roles {
+        text(size: 7pt, fill: rgb("#555555"))[▸ #r.title #h(4pt) #text(fill: rgb("#888888"))[#r.period]]
+        linebreak()
+      }
+      v(4pt)
+    }
     items(..exp.items.map(item => [#item]))
   }
 ]

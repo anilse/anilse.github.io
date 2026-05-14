@@ -227,6 +227,11 @@
         function renderExperience(d) {
             document.getElementById('experience-list').innerHTML = d.experience.map(exp => {
                 const date = exp.start === exp.end ? exp.start : `${exp.start} — ${exp.end}`;
+                const rolesHtml = exp.roles
+                    ? `<div class="mt-2 space-y-1">${exp.roles.map(r =>
+                        `<div class="flex items-center gap-2 text-xs text-slate-400"><span class="text-sky-400">▸</span><span class="text-slate-300">${escapeHtml(r.title)}</span><span class="mono text-slate-500">${escapeHtml(r.period)}</span></div>`
+                      ).join('')}</div>`
+                    : '';
                 return `
                 <div class="timeline-item fade-in">
                     <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6">
@@ -237,7 +242,8 @@
                             </div>
                             <span class="mono text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full">${escapeHtml(date)}</span>
                         </div>
-                        <p class="text-xs text-slate-500 mb-3"><i class="fa-solid fa-location-dot mr-1"></i>${escapeHtml(exp.location)}</p>
+                        ${rolesHtml}
+                        <p class="text-xs text-slate-500 mb-3 ${exp.roles ? 'mt-3' : ''}"><i class="fa-solid fa-location-dot mr-1"></i>${escapeHtml(exp.location)}</p>
                         <ul class="space-y-2 text-sm text-slate-300">
                             ${exp.items.map(item => `<li class="flex gap-2"><span class="text-sky-400 mt-1">›</span>${escapeHtml(item)}</li>`).join('')}
                         </ul>
