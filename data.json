@@ -70,6 +70,7 @@
         "Python automation framework for baseline integrations and AOSP uplifts, with unit and integration tests.",
         "Boot time optimizations on QNX Hypervisor and Android VM.",
         "Debugging platform-level issues across QNX Hypervisor and Android VM.",
+        "Addressing CTS/VTS failures on the platform.",
         "Secureboot enablement and automation framework development.",
         "Extended QDL (Qualcomm open-source downloader) for CI/CD and developer workflows.",
         "Virtual A/B and dynamic partitions adaptation for software download processes.",
@@ -84,8 +85,11 @@
       "end": "Apr 2023",
       "location": "Kraków, Polska",
       "items": [
-        "Development and maintenance of software download applications using Android's Update Engine.",
-        "Adaptation of Android OTA package creation to customer-specific software download format.",
+        "Development and maintenance of software download applications wrapping Android's Update Engine.",
+        "Flashing tool implementation and maintenance wrapping fastboot and QDL",
+        "Introducing Dynamic partitions and Virtual A/B to customer-specific software download processes.",
+        "Test implementations for software download processes with Pytest and Behave",
+        "Automation tool development for software download package creation per build wrapping Google's otatools.",
         "Debugging platform-level issues on both QNX and Android Virtual Machine."
       ]
     },
@@ -97,9 +101,9 @@
       "end": "Sep 2021",
       "location": "Ankara, Turkey",
       "items": [
-        "Extension and development of ExoPlayer library for real-time video streaming.",
-        "Development of video player applications using GStreamer SDK, H.264 over RTP/RTSP.",
-        "Embedded Linux development using Yocto for i.MX 8 based custom HMI boards."
+        "Extension and development of ExoPlayer library for real-time video streaming for cockpit HMI",
+        "Development of video player applications using GStreamer SDK, H.264 over RTP/RTSP for cameras running on Yocto",
+        "C++ driver developments on CPU cores of Xilinx Zynq 7000 for custom IPs on FPGA for image processing algorithms"
       ]
     },
     {
@@ -119,8 +123,14 @@
         "Led architectural decisions for Android OS customization on Qualcomm-based smartphones and tablets.",
         "Design, development and integration of system services for manufacturing and OTA updates.",
         "Android OS bring-up on custom boards based on Qualcomm chipsets.",
-        "Peripheral bring-ups of display (MIPI-DSI), audio, sensors (I2C, SPI) on Linux Kernel.",
-        "BSP-level development and integration for tablet and smartphone product lines."
+        "Peripheral bring-ups of display (MIPI-DSI), audio, sensors (I2C, SPI) on Android Kernel.",
+        "Device driver development for touch-screens, EMR sheets/pens and sensors on Android Kernel.",
+        "BSP-level development and integration for tablet and smartphone product lines.",
+        "Integration of Qualcomm baselines.",
+        "Average sleep current and charging optimizations for battery.",
+        "Boot time optimizations of Android OS.",
+        "Addressing platform-level issues along with CTS/VTS compliance.",
+        "GMS and Widevine DRM integrations."
       ]
     }
   ],
@@ -162,46 +172,66 @@
   },
   "honors": [
     {
-      "title": "65th among 1,600,000",
-      "subtitle": "Univ. Entrance Exam (ÖSS)",
+      "title": "65th",
+      "subtitle": "University Entrance Exam (ÖSS)",
       "year": "2008"
     }
   ],
   "projects": [
     {
-      "name": "Android Automotive Platform",
+      "name": "Volvo EX90 Infotainment",
       "icon": "fa-solid fa-car",
-      "description": "Integration and customization of Android Automotive OS and QNX Hypervisor for next-generation in-vehicle infotainment systems at HaleyTek AB.",
-      "tags": ["AAOS", "QNX", "Hypervisor"],
-      "cvLabel": "Android Automotive Platform — IVI (BSP & AAOS)"
+      "description": "Board bring-up and platform development for the Volvo EX90 in-vehicle infotainment system on Qualcomm SA8255.",
+      "tags": ["AAOS", "QNX", "SA8255"],
+      "url": "https://www.youtube.com/watch?v=DFlFSvSeht8",
+      "cvLabel": "Volvo EX90 — IVI (BSP & AAOS)"
     },
     {
-      "name": "OTA Update System",
-      "icon": "fa-solid fa-download",
-      "description": "End-to-end software download solution using Android's Update Engine with customer-specific OTA package adaptation at Aptiv.",
-      "tags": ["Android", "OTA", "Update Engine"],
-      "cvLabel": "OTA Update System — Aptiv"
+      "name": "Volvo EX60 Infotainment",
+      "icon": "fa-solid fa-car",
+      "description": "Board bring-up and platform development for the Volvo EX60 in-vehicle infotainment system on Qualcomm SA8255.",
+      "tags": ["AAOS", "QNX", "SA8255"],
+      "url": "https://www.youtube.com/watch?v=6ojkSoktx00",
+      "cvLabel": "Volvo EX60 — IVI (BSP & AAOS)"
     },
     {
-      "name": "Real-Time Video Streaming",
-      "icon": "fa-solid fa-video",
-      "description": "Extended ExoPlayer library for real-time video streaming. Built GStreamer-based video player with H.264 over RTP/RTSP at TÜBİTAK SAGE.",
+      "name": "Volvo EX30 Infotainment",
+      "icon": "fa-solid fa-car",
+      "description": "Board bring-up and platform development for the Volvo EX30 in-vehicle infotainment system on Qualcomm SA8155.",
+      "tags": ["AAOS", "QNX", "SA8155"],
+      "url": "https://www.youtube.com/watch?v=ghcAd_K4j2E",
+      "cvLabel": "Volvo EX30 — IVI (BSP & AAOS)"
+    },
+    {
+      "name": "Cockpit HMI",
+      "icon": "fa-solid fa-jet-fighter",
+      "description": "Extended ExoPlayer for real-time video streaming and built GStreamer-based players with H.264 over RTP/RTSP for cockpit HMI systems at TÜBİTAK SAGE.",
       "tags": ["ExoPlayer", "GStreamer", "RTP/RTSP"],
-      "cvLabel": "Real-Time Video Streaming — TÜBİTAK"
+      "cvLabel": "Cockpit HMI — TÜBİTAK SAGE"
     },
     {
-      "name": "Vestel Venus V3 5570",
+      "name": "Vestel Venus V5",
       "icon": "fa-solid fa-mobile-screen",
-      "description": "Full BSP and AOSP development for Vestel's Venus smartphone line, including Qualcomm chipset bring-up and peripheral integration.",
+      "description": "BSP and AOSP development for the Vestel Venus V5 smartphone on Qualcomm chipsets.",
       "tags": ["AOSP", "Qualcomm", "BSP"],
-      "cvLabel": "Vestel Venus V3 5570 — Smartphone (BSP & AOSP)"
+      "url": "https://www.youtube.com/watch?v=UYcWqLcyHn4",
+      "cvLabel": "Vestel Venus V5 — Smartphone (BSP & AOSP)"
     },
     {
-      "name": "THOR Tablet Series",
-      "icon": "fa-solid fa-tablet-screen-button",
-      "description": "BSP and Android platform development for multiple THOR tablet variants and the 7.85\" Tablet PC product line at Vestel Electronics.",
-      "tags": ["Android", "Tablet", "BSP"],
-      "cvLabel": "THOR Tablet Series — Multiple variants"
+      "name": "Vestel Venus V4",
+      "icon": "fa-solid fa-mobile-screen",
+      "description": "BSP and AOSP development for the Vestel Venus V4 smartphone on Qualcomm chipsets.",
+      "tags": ["AOSP", "Qualcomm", "BSP"],
+      "url": "https://www.youtube.com/watch?v=gnSHNhlPGDw",
+      "cvLabel": "Vestel Venus V4 — Smartphone (BSP & AOSP)"
+    },
+    {
+      "name": "Vestel Venus V3",
+      "icon": "fa-solid fa-mobile-screen",
+      "description": "BSP and AOSP development for the Vestel Venus V3 smartphone on Qualcomm chipsets.",
+      "tags": ["AOSP", "Qualcomm", "BSP"],
+      "url": "https://www.youtube.com/watch?v=3OGR9sbYrhc",
+      "cvLabel": "Vestel Venus V3 — Smartphone (BSP & AOSP)"
     }
   ]
 }

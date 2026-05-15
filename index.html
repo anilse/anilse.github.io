@@ -347,7 +347,13 @@
         }
 
         function renderProjects(d) {
-            document.getElementById('projects-grid').innerHTML = d.projects.map(p => `
+            document.getElementById('projects-grid').innerHTML = d.projects.map(p => {
+                let videoHtml = '';
+                if (p.url && p.url.includes('youtube.com')) {
+                    const vid = new URL(p.url).searchParams.get('v');
+                    videoHtml = `<div class="mt-4 rounded-lg overflow-hidden aspect-video"><iframe src="https://www.youtube.com/embed/${vid}" class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+                }
+                return `
                 <div class="fade-in bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-sky-500/30 transition-colors">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="w-10 h-10 bg-sky-500/10 text-sky-400 rounded-lg flex items-center justify-center">
@@ -359,8 +365,9 @@
                     <div class="flex flex-wrap gap-2">
                         ${p.tags.map(t => `<span class="mono text-xs px-2 py-1 bg-slate-900 text-slate-400 rounded">${escapeHtml(t)}</span>`).join('')}
                     </div>
-                </div>
-            `).join('');
+                    ${videoHtml}
+                </div>`;
+            }).join('');
         }
 
         function renderContact(d) {
