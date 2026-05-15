@@ -12,6 +12,46 @@
     "location": "Ankara, Turkey"
   },
   "summary": "Senior software engineer with 13+ years of experience in consumer electronics, defense industry, and automotive. Expert in Embedded Android (AOSP), Board Support Package (BSP) development, and QNX. Proven track record in leading platform-level software development across smartphones, tablets, defense systems, and next-generation automotive infotainment platforms.",
+  "companies": [
+    { "name": "Volvo Cars", "logo": "logos/volvo.jpeg", "url": "https://www.volvocars.com" },
+    { "name": "HaleyTek AB", "logo": "logos/haleytek.jfif", "url": "https://www.haleytek.com" },
+    { "name": "Aptiv", "logo": "logos/aptiv.png", "url": "https://www.aptiv.com" },
+    { "name": "TÜBİTAK SAGE", "logo": "logos/tubitak.png", "url": "https://www.tubitak.gov.tr", "scale": 1.4 },
+    { "name": "Vestel Electronics", "logo": "logos/vestel.png", "url": "https://www.vestel.com.tr" }
+  ],
+  "about": [
+    {
+      "heading": "Platforms & Industries",
+      "items": [
+        "Smartphones & tablets — Consumer Electronics (Vestel Electronics)",
+        "FPGA-based image processing & cockpit displays — Defense (TÜBİTAK SAGE)",
+        "In-vehicle infotainment systems — Automotive (Aptiv & HaleyTek)",
+        "Induction oven controllers — Consumer Electronics (Vestel Electronics)"
+      ]
+    },
+    {
+      "heading": "Silicon & Operating Systems",
+      "items": [
+        "Qualcomm, Intel, NXP i.MX, Xilinx Zynq, Renesas",
+        "Android AOSP (4.1 → 17), QNX 7.0/7.1",
+        "Yocto Linux, µC/OS, bare-metal"
+      ]
+    },
+    {
+      "heading": "Languages & Build Systems",
+      "items": [
+        "C, C++ (98/11/14/17), Python, Java, shell scripting",
+        "Makefiles, CMake, Android Soong build system"
+      ]
+    },
+    {
+      "heading": "What I'm Exploring",
+      "items": [
+        "Integrating agentic AI tools into development workflows for productivity and automation",
+        "Learning Rust as a modern alternative for low-level systems programming"
+      ]
+    }
+  ],
   "experience": [
     {
       "role": "Lead Software Developer",
@@ -25,10 +65,15 @@
         { "title": "Senior Software Developer", "period": "May 2023 — Oct 2024" }
       ],
       "items": [
-        "Integration of baselines of various automotive Android and QNX projects.",
-        "Customization of Android Automotive OS and QNX for OEM customer needs.",
-        "Debugging platform-level issues on both QNX Hypervisor and Android VM.",
-        "Writing automated tests using Behave and Pytest frameworks."
+        "Board bring-up of Volvo Cars IVI systems on Qualcomm SA8155 and SA8255 SoCs.",
+        "Integration of Qualcomm baselines and AOSP/AAOS uplifts from Google manifests.",
+        "Python automation framework for baseline integrations and AOSP uplifts, with unit and integration tests.",
+        "Boot time optimizations on QNX Hypervisor and Android VM.",
+        "Debugging platform-level issues across QNX Hypervisor and Android VM.",
+        "Secureboot enablement and automation framework development.",
+        "Extended QDL (Qualcomm open-source downloader) for CI/CD and developer workflows.",
+        "Virtual A/B and dynamic partitions adaptation for software download processes.",
+        "Incremental OTA implementation for software download processes."
       ]
     },
     {
@@ -101,9 +146,7 @@
       "Embedded Android (AOSP)",
       "BSP Development",
       "Linux Device Drivers",
-      "QNX Hypervisor",
-      "Android App Dev",
-      "OTA Update Systems"
+      "QNX Hypervisor"
     ],
     "programming": [
       "C++ 98/11/14/17", "C", "Python 3.x", "Java", "Shell", "Makefile", "CMake"
