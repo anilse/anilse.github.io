@@ -177,9 +177,11 @@
       "year": "2008"
     }
   ],
+  "projectGroups": ["HaleyTek AB & Aptiv", "TÜBİTAK SAGE", "Vestel Electronics"],
   "projects": [
     {
       "name": "Volvo EX90 Infotainment",
+      "group": "HaleyTek AB & Aptiv",
       "icon": "fa-solid fa-car",
       "description": "Board bring-up and platform development for the Volvo EX90 in-vehicle infotainment system on Qualcomm SA8255.",
       "tags": ["AAOS", "QNX", "SA8255"],
@@ -188,6 +190,7 @@
     },
     {
       "name": "Volvo EX60 Infotainment",
+      "group": "HaleyTek AB & Aptiv",
       "icon": "fa-solid fa-car",
       "description": "Board bring-up and platform development for the Volvo EX60 in-vehicle infotainment system on Qualcomm SA8255.",
       "tags": ["AAOS", "QNX", "SA8255"],
@@ -196,6 +199,7 @@
     },
     {
       "name": "Volvo EX30 Infotainment",
+      "group": "HaleyTek AB & Aptiv",
       "icon": "fa-solid fa-car",
       "description": "Board bring-up and platform development for the Volvo EX30 in-vehicle infotainment system on Qualcomm SA8155.",
       "tags": ["AAOS", "QNX", "SA8155"],
@@ -204,13 +208,15 @@
     },
     {
       "name": "Cockpit HMI",
+      "group": "TÜBİTAK SAGE",
       "icon": "fa-solid fa-jet-fighter",
-      "description": "Extended ExoPlayer for real-time video streaming and built GStreamer-based players with H.264 over RTP/RTSP for cockpit HMI systems at TÜBİTAK SAGE.",
+      "description": "Extended ExoPlayer for real-time video streaming and built GStreamer-based players with H.264 over RTP/RTSP for cockpit HMI systems.",
       "tags": ["ExoPlayer", "GStreamer", "RTP/RTSP"],
       "cvLabel": "Cockpit HMI — TÜBİTAK SAGE"
     },
     {
       "name": "Vestel Venus V5",
+      "group": "Vestel Electronics",
       "icon": "fa-solid fa-mobile-screen",
       "description": "BSP and AOSP development for the Vestel Venus V5 smartphone on Qualcomm chipsets.",
       "tags": ["AOSP", "Qualcomm", "BSP"],
@@ -219,6 +225,7 @@
     },
     {
       "name": "Vestel Venus V4",
+      "group": "Vestel Electronics",
       "icon": "fa-solid fa-mobile-screen",
       "description": "BSP and AOSP development for the Vestel Venus V4 smartphone on Qualcomm chipsets.",
       "tags": ["AOSP", "Qualcomm", "BSP"],
@@ -227,11 +234,44 @@
     },
     {
       "name": "Vestel Venus V3",
+      "group": "Vestel Electronics",
       "icon": "fa-solid fa-mobile-screen",
       "description": "BSP and AOSP development for the Vestel Venus V3 smartphone on Qualcomm chipsets.",
       "tags": ["AOSP", "Qualcomm", "BSP"],
       "url": "https://www.youtube.com/watch?v=3OGR9sbYrhc",
       "cvLabel": "Vestel Venus V3 — Smartphone (BSP & AOSP)"
+    },
+    {
+      "name": "THOR Tablet",
+      "group": "Vestel Electronics",
+      "icon": "fa-solid fa-tablet-screen-button",
+      "description": "BSP and Android platform development for the THOR tablet on Qualcomm chipsets.",
+      "tags": ["AOSP", "Qualcomm", "BSP"],
+      "cvLabel": "THOR Tablet — (BSP & AOSP)"
+    },
+    {
+      "name": "V Tab 7",
+      "group": "Vestel Electronics",
+      "icon": "fa-solid fa-tablet-screen-button",
+      "description": "BSP and Android platform development for the V Tab 7 tablet on Allwinner chipsets.",
+      "tags": ["AOSP", "Allwinner", "BSP"],
+      "cvLabel": "V Tab 7 — Tablet (BSP & AOSP)"
+    },
+    {
+      "name": "V Tab 7.85",
+      "group": "Vestel Electronics",
+      "icon": "fa-solid fa-tablet-screen-button",
+      "description": "BSP and Android platform development for the V Tab 7.85 tablet on Allwinner chipsets.",
+      "tags": ["AOSP", "Allwinner", "BSP"],
+      "cvLabel": "V Tab 7.85 — Tablet (BSP & AOSP)"
+    },
+    {
+      "name": "V Tab 10.1",
+      "group": "Vestel Electronics",
+      "icon": "fa-solid fa-tablet-screen-button",
+      "description": "BSP and Android platform development for the V Tab 10.1 tablet on Allwinner chipsets.",
+      "tags": ["AOSP", "Allwinner", "BSP"],
+      "cvLabel": "V Tab 10.1 — Tablet (BSP & AOSP)"
     }
   ]
 }
