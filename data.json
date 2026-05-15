@@ -124,7 +124,7 @@
         "Design, development and integration of system services for manufacturing and OTA updates.",
         "Android OS bring-up on custom boards based on Qualcomm chipsets.",
         "Peripheral bring-ups of display (MIPI-DSI), audio, sensors (I2C, SPI) on Android Kernel.",
-        "Device driver development for touch-screens, EMR sheets/pens and sensors on Android Kernel.",
+        "Device driver development for touch-screens, EMR sheets/pens and sensors.",
         "BSP-level development and integration for tablet and smartphone product lines.",
         "Integration of Qualcomm baselines.",
         "Average sleep current and charging optimizations for battery.",
