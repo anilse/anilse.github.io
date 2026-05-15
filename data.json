@@ -11,7 +11,7 @@
     "linkedinHandle": "anilsezgin",
     "location": "Gothenburg, Sweden"
   },
-  "summary": "Senior software engineer with 13+ years of experience in consumer electronics, defense industry, and automotive. Expert in Embedded Android (AOSP), Board Support Package (BSP) development, and QNX. Proven track record in leading platform-level software development across smartphones, tablets, defense systems, and next-generation automotive infotainment platforms.",
+  "summary": "Senior software engineer with over a decade of experience in consumer electronics, defense industry, and automotive. Expert in Embedded Android (AOSP), Board Support Package (BSP) development, and QNX. Proven track record in leading platform-level software development across smartphones, tablets, defense systems, and next-generation automotive infotainment platforms.",
   "companies": [
     { "name": "Volvo Cars", "logo": "logos/volvo.jpeg", "url": "https://www.volvocars.com" },
     { "name": "HaleyTek AB", "logo": "logos/haleytek.jfif", "url": "https://www.haleytek.com" },
@@ -154,9 +154,17 @@
   "skills": {
     "expertise": [
       "Embedded Android (AOSP)",
+      "Android Automotive (AAOS)",
       "BSP Development",
       "Linux Device Drivers",
-      "QNX Hypervisor"
+      "QNX Hypervisor",
+      "OTA / SWDL",
+      "Boot Optimization",
+      "CTS/VTS Compliance",
+      "Secureboot",
+      "CI/CD Automation",
+      "GStreamer / Multimedia",
+      "Qualcomm SoCs"
     ],
     "programming": [
       "C++ 98/11/14/17", "C", "Python 3.x", "Java", "Shell", "Makefile", "CMake"
@@ -172,7 +180,7 @@
   },
   "honors": [
     {
-      "title": "65th",
+      "title": "65th / 1,600,000",
       "subtitle": "University Entrance Exam (ÖSS)",
       "year": "2008"
     }
@@ -183,8 +191,8 @@
       "name": "Volvo EX90 Infotainment",
       "group": "HaleyTek AB & Aptiv",
       "icon": "fa-solid fa-car",
-      "description": "Board bring-up and platform development for the Volvo EX90 in-vehicle infotainment system on Qualcomm SA8255.",
-      "tags": ["AAOS", "QNX", "SA8255"],
+      "description": "Board bring-up and platform development for the Volvo EX90 in-vehicle infotainment system on Qualcomm SA8155.",
+      "tags": ["AAOS", "QNX", "SA8155"],
       "url": "https://www.youtube.com/watch?v=DFlFSvSeht8",
       "cvLabel": "Volvo EX90 — IVI (BSP & AAOS)"
     },
@@ -218,8 +226,8 @@
       "name": "Vestel Venus V5",
       "group": "Vestel Electronics",
       "icon": "fa-solid fa-mobile-screen",
-      "description": "BSP and AOSP development for the Vestel Venus V5 smartphone on Qualcomm chipsets.",
-      "tags": ["AOSP", "Qualcomm", "BSP"],
+      "description": "BSP and AOSP development for the Vestel Venus V5 smartphone on Qualcomm SDM660.",
+      "tags": ["AOSP", "Qualcomm SDM660", "BSP"],
       "url": "https://www.youtube.com/watch?v=UYcWqLcyHn4",
       "cvLabel": "Vestel Venus V5 — Smartphone (BSP & AOSP)"
     },
@@ -227,8 +235,8 @@
       "name": "Vestel Venus V4",
       "group": "Vestel Electronics",
       "icon": "fa-solid fa-mobile-screen",
-      "description": "BSP and AOSP development for the Vestel Venus V4 smartphone on Qualcomm chipsets.",
-      "tags": ["AOSP", "Qualcomm", "BSP"],
+      "description": "BSP and AOSP development for the Vestel Venus V4 smartphone on Qualcomm MSM8937/MSM8953.",
+      "tags": ["AOSP", "Qualcomm MSM8937/8953", "BSP"],
       "url": "https://www.youtube.com/watch?v=gnSHNhlPGDw",
       "cvLabel": "Vestel Venus V4 — Smartphone (BSP & AOSP)"
     },
@@ -236,8 +244,8 @@
       "name": "Vestel Venus V3",
       "group": "Vestel Electronics",
       "icon": "fa-solid fa-mobile-screen",
-      "description": "BSP and AOSP development for the Vestel Venus V3 smartphone on Qualcomm chipsets.",
-      "tags": ["AOSP", "Qualcomm", "BSP"],
+      "description": "BSP and AOSP development for the Vestel Venus V3 smartphone on Qualcomm MSM8939.",
+      "tags": ["AOSP", "Qualcomm MSM8939", "BSP"],
       "url": "https://www.youtube.com/watch?v=3OGR9sbYrhc",
       "cvLabel": "Vestel Venus V3 — Smartphone (BSP & AOSP)"
     },
