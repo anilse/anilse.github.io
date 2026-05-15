@@ -3,7 +3,7 @@
   "siteUrl": "https://anilsezgin.dev",
   "name": "Anıl Sezgin",
   "nameUpper": "ANIL SEZGİN",
-  "title": "Senior AOSP & BSP Developer",
+  "title": "Senior AOSP/AAOS & BSP Developer",
   "contact": {
     "email": "anil.sezgin@outlook.com",
     "phone": "",
@@ -11,7 +11,7 @@
     "linkedinHandle": "anilsezgin",
     "location": "Gothenburg, Sweden"
   },
-  "summary": "Senior software engineer with over a decade of experience in consumer electronics, defense industry, and automotive. Expert in Embedded Android (AOSP), Board Support Package (BSP) development, and QNX. Proven track record in leading platform-level software development across smartphones, tablets, defense systems, and next-generation automotive infotainment platforms.",
+  "summary": "Senior software engineer with over a decade of experience in consumer electronics, defense industry, and automotive. Expert in Embedded Android (AOSP/AAOS), Board Support Package (BSP) development, and QNX. Proven track record in leading platform-level software development across smartphones, tablets, defense systems, and next-generation automotive infotainment platforms.",
   "companies": [
     { "name": "Volvo Cars", "logo": "logos/volvo.jpeg", "url": "https://www.volvocars.com" },
     { "name": "HaleyTek AB", "logo": "logos/haleytek.jfif", "url": "https://www.haleytek.com" },
