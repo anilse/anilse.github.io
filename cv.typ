@@ -14,11 +14,11 @@
 
 // Helpers
 #let section(title) = {
-  v(6pt)
+  v(4pt)
   text(10pt, weight: "bold", fill: accent, upper(title))
   v(-5pt)
   line(length: 100%, stroke: 1.2pt + accent)
-  v(3pt)
+  v(2pt)
 }
 
 #let entry(title, subtitle, date, location) = {
@@ -43,9 +43,9 @@
 }
 
 #let divider() = {
-  v(1pt)
+  v(0.5pt)
   line(length: 100%, stroke: 0.4pt + rgb("#dddddd"))
-  v(1pt)
+  v(0.5pt)
 }
 
 #let items(..args) = {
@@ -81,7 +81,7 @@
     #for (i, edu) in data.education.enumerate() {
       if i > 0 { divider() }
       entry(edu.degree, edu.school, edu.start + " — " + edu.end, "")
-      v(4pt)
+      v(2pt)
     }
 
     #section("Areas of Expertise")
@@ -118,16 +118,20 @@
         align(right, text(size: 8pt, fill: light-gray, honor.year)),
         text(fill: accent, size: 8.5pt, weight: "medium", honor.subtitle),
       )
-      v(4pt)
+      v(2pt)
     }
 
     #section("Projects")
-    #items(
-      ..data.projects.map(p => {
-        let label = if "cvLabel" in p { p.cvLabel } else { p.name }
-        [*#label*]
-      })
-    )
+    #let groups = data.projectGroups
+    #for (i, group) in groups.enumerate() {
+      if i > 0 { v(2pt) }
+      let items = data.projects.filter(p => p.group == group)
+      let names = items.map(p => p.name).join(" / ")
+      text(weight: "bold", size: 8pt)[#names]
+      linebreak()
+      text(size: 7pt, fill: light-gray)[#group]
+      v(2pt)
+    }
   ]
 )
 
@@ -143,12 +147,12 @@
     let date = if exp.end == exp.start { exp.start } else { exp.start + " — " + exp.end }
     entry(exp.role, exp.company + " — " + exp.department, date, exp.location)
     if "roles" in exp {
-      v(6pt)
+      v(3pt)
       for r in exp.roles {
         text(size: 7pt, fill: rgb("#555555"))[▸ #r.title #h(4pt) #text(fill: rgb("#888888"))[#r.period]]
         linebreak()
       }
-      v(4pt)
+      v(2pt)
     }
     items(..exp.items.map(item => [#item]))
   }
