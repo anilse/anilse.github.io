@@ -72,7 +72,7 @@
         "Debugging platform-level issues across QNX Hypervisor and Android VM.",
         "Addressing CTS/VTS failures on the platform.",
         "Secureboot enablement and automation framework development.",
-        "Extended QDL (Qualcomm open-source downloader) for CI/CD and developer workflows.",
+        "UFS reprovisioning, partition layout optimization, and QDL tooling for CI/CD.",
         "Virtual A/B and dynamic partitions adaptation for software download processes.",
         "Incremental OTA implementation for software download processes."
       ]

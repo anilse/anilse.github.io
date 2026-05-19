@@ -4,9 +4,9 @@
 
 #let data = json("data.json")
 
-#set page(margin: (x: 1.2cm, top: 1.2cm, bottom: 1cm))
+#set page(margin: (x: 1.2cm, top: 1.0cm, bottom: 0.4cm))
 #set text(font: "Segoe UI", size: 8.5pt, fill: rgb("#444444"))
-#set par(justify: true, leading: 0.5em)
+#set par(justify: true, leading: 0.38em)
 
 // Colors
 #let accent = rgb("#1a5c2a")
