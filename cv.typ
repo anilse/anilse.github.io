@@ -1,8 +1,10 @@
 // Anıl Sezgin — CV
 // Data loaded from data.json — single source of truth
 // Compiled with: typst compile cv.typ Anil_Sezgin_CV.pdf
+//           or:  typst compile cv.typ Anil_Sezgin_CV_Photo.pdf --input photo=true
 
 #let data = json("data.json")
+#let with-photo = sys.inputs.at("photo", default: "false") == "true"
 
 #set page(margin: (x: 1.2cm, top: 1.0cm, bottom: 0.4cm))
 #set text(font: "Segoe UI", size: 8.5pt, fill: rgb("#444444"))
@@ -57,15 +59,31 @@
 }
 
 // ── HEADER ──
-#align(center)[
-  #text(22pt, weight: "bold", fill: rgb("#1a1a1a"))[#data.nameUpper]
-  #v(-5pt)
-  #text(10pt, fill: accent, weight: "medium")[#data.title]
-  #v(1pt)
-  #text(8pt, fill: light-gray)[
-    #link("mailto:" + data.contact.email)[#data.contact.email] #if data.contact.phone != "" { [#h(4pt)·#h(4pt) #data.contact.phone] } #h(4pt)·#h(4pt) #link(data.siteUrl)[anilsezgin.dev] #h(4pt)·#h(4pt) #link(data.contact.linkedin)[linkedin.com/in/#data.contact.linkedinHandle] #h(4pt)·#h(4pt) #data.contact.location
+#let header-content(centered) = {
+  let al = if centered { center } else { left }
+  align(al)[
+    #text(22pt, weight: "bold", fill: rgb("#1a1a1a"))[#data.nameUpper]
+    #v(-5pt)
+    #text(10pt, fill: accent, weight: "medium")[#data.title]
+    #v(1pt)
+    #text(8pt, fill: light-gray)[
+      #link("mailto:" + data.contact.email)[#data.contact.email] #if data.contact.phone != "" { [#h(4pt)·#h(4pt) #data.contact.phone] } #h(4pt)·#h(4pt) #link(data.siteUrl)[anilsezgin.dev] #h(4pt)·#h(4pt) #link(data.contact.linkedin)[linkedin.com/in/#data.contact.linkedinHandle] #h(4pt)·#h(4pt) #data.contact.location
+    ]
   ]
-]
+}
+
+#if with-photo {
+  grid(
+    columns: (auto, 1fr),
+    column-gutter: 14pt,
+    align(horizon,
+      image("cv_photo_clean.jpg", width: 74pt, height: 74pt),
+    ),
+    align(horizon, header-content(true)),
+  )
+} else {
+  header-content(true)
+}
 #v(4pt)
 #line(length: 100%, stroke: 0.5pt + rgb("#cccccc"))
 #v(2pt)

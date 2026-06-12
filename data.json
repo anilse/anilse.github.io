@@ -99,7 +99,7 @@
       "department": "Embedded Systems",
       "start": "Oct 2019",
       "end": "Sep 2021",
-      "location": "Ankara, Turkey",
+      "location": "Ankara, Türkiye",
       "items": [
         "Extension and development of ExoPlayer library for real-time video streaming for cockpit HMI",
         "Development of video player applications using GStreamer SDK, H.264 over RTP/RTSP for cameras running on Yocto",
@@ -112,7 +112,7 @@
       "department": "Mobile Devices",
       "start": "Dec 2013",
       "end": "Sep 2019",
-      "location": "Manisa, Turkey",
+      "location": "Manisa, Türkiye",
       "roles": [
         { "title": "Software Architect", "period": "Dec 2017 — Sep 2019" },
         { "title": "Sr. Software Design Specialist", "period": "Jan 2015 — Dec 2017" },

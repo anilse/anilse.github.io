@@ -7,14 +7,16 @@ A minimalist dark-mode portfolio website and Typst CV for Anıl Sezgin, Senior A
 `data.json` is the single source of truth — both the website and CV read from it.
 
 ```
-├── data.json           # All CV data (single source of truth)
-├── index.html          # Portfolio website (reads data.json)
-├── cv.typ              # Typst CV source (reads data.json)
-├── Anil_Sezgin_CV.pdf  # Compiled CV
-├── validate.py         # Validation script (JSON, HTML5, Typst, security)
-├── validate.sh         # Shell wrapper (runs validate.py via uv)
-├── serve.cmd           # Local dev server
-├── .githooks/          # Shared git hooks
+├── data.json                  # All CV data (single source of truth)
+├── index.html                 # Portfolio website (reads data.json)
+├── cv.typ                     # Typst CV source (reads data.json)
+├── Anil_Sezgin_CV.pdf         # Compiled CV (no photo)
+├── Anil_Sezgin_CV_Photo.pdf   # Compiled CV (with photo)
+├── cv_photo_clean.jpg         # Portrait photo for CV photo variant
+├── validate.py                # Validation script (JSON, HTML5, Typst, security)
+├── validate.sh                # Shell wrapper (runs validate.py via uv)
+├── serve.cmd                  # Local dev server
+├── .githooks/                 # Shared git hooks
 └── README.md
 ```
 
@@ -61,6 +63,7 @@ brew install typst
 Compile:
 ```bash
 typst compile cv.typ Anil_Sezgin_CV.pdf
+typst compile cv.typ Anil_Sezgin_CV_Photo.pdf --input photo=true
 ```
 
 ## Deployment
