@@ -141,6 +141,7 @@
         <section id="projects" class="tab-content">
             <h2 class="text-2xl font-bold text-white mb-8">Projects</h2>
             <div id="projects-grid"></div>
+            <div id="projects-aosp" class="mt-10"></div>
         </section>
 
         <!-- CONTACT -->
@@ -378,6 +379,20 @@
                     </div>
                 </div>`;
             }).join('');
+
+            if (d.aospContributions && d.aospContributions.length) {
+                document.getElementById('projects-aosp').innerHTML = `
+                    <div class="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 fade-in">
+                        <h3 class="text-sm font-semibold text-sky-400 mb-3">Merged in AOSP</h3>
+                        <ul class="space-y-2 text-sm text-slate-300">
+                            ${d.aospContributions.map(c => `
+                                <li class="flex gap-2">
+                                    <span class="text-sky-400 mt-0.5">›</span>
+                                    <span><a href="${escapeHtml(c.url)}" target="_blank" rel="noopener" class="text-slate-300 hover:text-sky-400 transition-colors">${escapeHtml(c.title)}</a> <span class="text-slate-500 mono text-xs">${escapeHtml(c.repo)}</span></span>
+                                </li>`).join('')}
+                        </ul>
+                    </div>`;
+            }
         }
 
         function renderContact(d) {

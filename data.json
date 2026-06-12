@@ -43,13 +43,6 @@
         "C, C++ (98/11/14/17), Python, Java, shell scripting",
         "Makefiles, CMake, Android Soong build system"
       ]
-    },
-    {
-      "heading": "What I'm Exploring",
-      "items": [
-        "Integrating agentic AI tools into development workflows for productivity and automation",
-        "Learning Rust as a modern alternative for low-level systems programming"
-      ]
     }
   ],
   "experience": [
@@ -183,6 +176,20 @@
       "title": "65th / 1,600,000",
       "subtitle": "University Entrance Exam (ÖSS)",
       "year": "2008"
+    }
+  ],
+  "aospContributions": [
+    {
+      "title": "Return the daemon error code when update_engine_sideload finishes",
+      "repo": "platform/system/update_engine",
+      "cl": "3477895",
+      "url": "https://android-review.googlesource.com/c/platform/system/update_engine/+/3477895"
+    },
+    {
+      "title": "Skip testGpuWorkPeriodTracepointFormat for automotive",
+      "repo": "platform/frameworks/native",
+      "cl": "3999033",
+      "url": "https://android-review.googlesource.com/c/platform/frameworks/native/+/3999033"
     }
   ],
   "projectGroups": ["HaleyTek AB & Aptiv", "TÜBİTAK SAGE", "Vestel Electronics"],
